@@ -21,7 +21,7 @@ The p-value is the probability of seeing results **as extreme as yours** if ther
 ### Example
 
 ```python
-from pyexpstats import conversion
+from abverdict import conversion
 
 result = conversion.analyze(
     control_visitors=10000,
@@ -128,7 +128,7 @@ print(f"CI: [{result.confidence_interval_lower:.4f}, {result.confidence_interval
 
 ## One-Tailed vs. Two-Tailed
 
-pyexpstats uses **two-tailed** tests by default, which is appropriate when you want to detect effects in either direction.
+abverdict uses **two-tailed** tests by default, which is appropriate when you want to detect effects in either direction.
 
 | Test Type | Detects | Use When |
 |-----------|---------|----------|

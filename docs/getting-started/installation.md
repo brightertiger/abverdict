@@ -7,10 +7,10 @@
 
 ## Install from PyPI
 
-The easiest way to install pyexpstats is via pip:
+The easiest way to install abverdict is via pip:
 
 ```bash
-pip install pyexpstats
+pip install abverdict
 ```
 
 ## Install from Source
@@ -18,14 +18,14 @@ pip install pyexpstats
 To install the latest development version from source:
 
 ```bash
-git clone https://github.com/pyexpstats/pyexpstats.git
-cd pyexpstats
+git clone https://github.com/abverdict/abverdict.git
+cd abverdict
 pip install -e .
 ```
 
 ## Dependencies
 
-pyexpstats automatically installs the following dependencies:
+abverdict automatically installs the following dependencies:
 
 | Package | Purpose |
 |---------|---------|
@@ -42,10 +42,10 @@ For the web interface, additional dependencies are installed:
 
 ## Verify Installation
 
-After installation, verify that pyexpstats is working:
+After installation, verify that abverdict is working:
 
 ```python
-from pyexpstats import conversion, magnitude
+from abverdict import conversion, magnitude
 
 # Calculate sample size for a conversion test
 plan = conversion.sample_size(current_rate=5, lift_percent=10)
@@ -57,7 +57,7 @@ print(f"Sample size needed: {plan.visitors_per_variant:,} per variant")
 To start the web interface:
 
 ```bash
-pyexpstats-server
+abverdict-server
 ```
 
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
@@ -77,5 +77,5 @@ python --version  # Should be 3.9+
 If dependencies are missing, reinstall with:
 
 ```bash
-pip install --upgrade pyexpstats
+pip install --upgrade abverdict
 ```

@@ -1,13 +1,13 @@
 # Multi-Variant Test Examples
 
-Real-world examples of using pyexpstats for tests with 3+ variants.
+Real-world examples of using abverdict for tests with 3+ variants.
 
 ## Example 1: Button Color Test (Conversion)
 
 Testing 4 button colors on your CTA:
 
 ```python
-from pyexpstats import conversion
+from abverdict import conversion
 
 result = conversion.analyze_multi(
     variants=[
@@ -50,7 +50,7 @@ Variant Performance:
 Testing 3 pricing page layouts:
 
 ```python
-from pyexpstats import magnitude
+from abverdict import magnitude
 
 result = magnitude.analyze_multi(
     variants=[

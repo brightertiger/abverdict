@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from pyexpstats import timing
+from abverdict import timing
 
 
 class TestSurvivalCurve:

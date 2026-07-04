@@ -5,7 +5,7 @@ Tests the Beta-Binomial Bayesian approach to A/B testing.
 """
 
 import pytest
-from pyexpstats.methods.bayesian import (
+from abverdict.methods.bayesian import (
     analyze,
     BayesianTestResult,
     summarize,

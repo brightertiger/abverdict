@@ -5,11 +5,11 @@ Tests Impact Projections and Guardrail Monitoring.
 """
 
 import pytest
-from pyexpstats.business.impact import (
+from abverdict.business.impact import (
     project_impact,
     ImpactProjection,
 )
-from pyexpstats.business.guardrails import (
+from abverdict.business.guardrails import (
     check_guardrails,
     GuardrailReport,
     GuardrailResult,

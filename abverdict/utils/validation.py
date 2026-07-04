@@ -1,5 +1,5 @@
 """
-Input validation utilities for pyexpstats.
+Input validation utilities for abverdict.
 
 This module provides validation functions to ensure inputs are valid
 before performing statistical calculations.

@@ -6,7 +6,7 @@ This module provides different statistical approaches:
 - bayesian: Bayesian A/B testing
 """
 
-from pyexpstats.methods import sequential
-from pyexpstats.methods import bayesian
+from abverdict.methods import sequential
+from abverdict.methods import bayesian
 
 __all__ = ["sequential", "bayesian"]

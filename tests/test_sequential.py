@@ -5,7 +5,7 @@ Tests the SPRT-based sequential testing with O'Brien-Fleming and Pocock boundari
 """
 
 import pytest
-from pyexpstats.methods.sequential import (
+from abverdict.methods.sequential import (
     analyze,
     SequentialTestResult,
     summarize,

@@ -1,4 +1,4 @@
-# JOSS Submission Materials for pyexpstats
+# JOSS Submission Materials for abverdict
 
 This folder contains the submission materials for the Journal of Open Source Software (JOSS).
 
@@ -43,7 +43,7 @@ Please take the following screenshots and save them in the `figures/` folder:
 1. Ensure the application is running:
    ```bash
    # Terminal 1: API server
-   python -m pyexpstats.api
+   python -m abverdict.api
 
    # Terminal 2: Frontend
    cd frontend && npm run dev

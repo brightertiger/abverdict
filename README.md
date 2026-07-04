@@ -1,28 +1,28 @@
 <p align="center">
-  <img src="static/logo.png" alt="pyexpstats - Python A/B Testing and Experiment Analysis Library" width="400">
+  <img src="static/logo.png" alt="abverdict - Python A/B Testing and Experiment Analysis Library" width="400">
 </p>
 
-<h1 align="center">pyexpstats</h1>
+<h1 align="center">abverdict</h1>
 
 <p align="center">
   <strong>A/B Testing Calculator & Statistical Significance Analysis for Python</strong>
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/pyexpstats/"><img src="https://img.shields.io/pypi/v/pyexpstats.svg" alt="PyPI version"></a>
-  <a href="https://pypi.org/project/pyexpstats/"><img src="https://img.shields.io/pypi/pyversions/pyexpstats.svg" alt="Python versions"></a>
-  <a href="https://github.com/brightertiger/pyexpstats/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://pypi.org/project/abverdict/"><img src="https://img.shields.io/pypi/v/abverdict.svg" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/abverdict/"><img src="https://img.shields.io/pypi/pyversions/abverdict.svg" alt="Python versions"></a>
+  <a href="https://github.com/brightertiger/abverdict/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
 </p>
 
 <p align="center">
-  <a href="https://pyexpstats.vercel.app"><strong>🚀 Try the Live Calculator → pyexpstats.vercel.app</strong></a>
+  <a href="https://abverdict.vercel.app"><strong>🚀 Try the Live Calculator → abverdict.vercel.app</strong></a>
 </p>
 
 ---
 
-## What is pyexpstats?
+## What is abverdict?
 
-**pyexpstats** is a Python library and web-based A/B testing calculator for experiment analysis, sample size calculation, and statistical significance testing. Whether you're running conversion rate optimization (CRO) experiments, analyzing split tests, or calculating statistical power, pyexpstats provides the tools you need.
+**abverdict** is a Python library and web-based A/B testing calculator for experiment analysis, sample size calculation, and statistical significance testing. Whether you're running conversion rate optimization (CRO) experiments, analyzing split tests, or calculating statistical power, abverdict provides the tools you need.
 
 ### Key Features
 
@@ -42,7 +42,7 @@
 
 No installation needed! Use our **free online A/B testing calculator** at:
 
-### **[pyexpstats.vercel.app](https://pyexpstats.vercel.app)**
+### **[abverdict.vercel.app](https://abverdict.vercel.app)**
 
 <p align="center">
   <img src="static/interface.png" alt="A/B Test Calculator - Sample Size and Statistical Significance Calculator Interface" width="700">
@@ -74,15 +74,15 @@ Calculate sample sizes, analyze experiment results, and determine statistical si
 
 ---
 
-## Why pyexpstats?
+## Why abverdict?
 
-| Traditional Tools | pyexpstats |
+| Traditional Tools | abverdict |
 |-------------------|-----------|
 | "Which statistical test?" | "What changed in user behavior?" |
 | Test-centric | Effect-centric |
 | Complex statistics | Plain-language results |
 
-pyexpstats models experimental impact across three fundamental **outcome dimensions**:
+abverdict models experimental impact across three fundamental **outcome dimensions**:
 
 | Effect Type | Question Answered | Examples |
 |-------------|-------------------|----------|
@@ -95,13 +95,13 @@ pyexpstats models experimental impact across three fundamental **outcome dimensi
 ## Installation
 
 ```bash
-pip install pyexpstats
+pip install abverdict
 ```
 
-To also run the bundled web app / REST API (`pyexpstats-server`), install the server extra:
+To also run the bundled web app / REST API (`abverdict-server`), install the server extra:
 
 ```bash
-pip install "pyexpstats[server]"
+pip install "abverdict[server]"
 ```
 
 **Requirements:** Python 3.9+
@@ -111,7 +111,7 @@ pip install "pyexpstats[server]"
 ## Quick Start
 
 ```python
-from pyexpstats import conversion, magnitude, timing
+from abverdict import conversion, magnitude, timing
 
 # Conversion: Did the treatment change whether users purchase?
 result = conversion.analyze(
@@ -152,7 +152,7 @@ Use for **binary outcomes**: did the user convert or not? Perfect for analyzing 
 ### Analyze an A/B Test
 
 ```python
-from pyexpstats import conversion
+from abverdict import conversion
 
 result = conversion.analyze(
     control_visitors=10000,
@@ -224,7 +224,7 @@ Use for **continuous metrics**: revenue per user, average order value, time on s
 ### Analyze Revenue or Continuous Metrics
 
 ```python
-from pyexpstats import magnitude
+from abverdict import magnitude
 
 result = magnitude.analyze(
     control_visitors=5000,
@@ -292,7 +292,7 @@ Use for **time-to-event analysis**: time to purchase, time to churn, subscriptio
 ### Survival Analysis (Log-Rank Test)
 
 ```python
-from pyexpstats import timing
+from abverdict import timing
 
 result = timing.analyze(
     control_times=[5, 8, 12, 15, 18, 22, 25, 30],
@@ -364,7 +364,7 @@ Stop your A/B tests early with valid statistics using Sequential Probability Rat
 ### Check If You Can Stop Early
 
 ```python
-from pyexpstats.methods import sequential
+from abverdict.methods import sequential
 
 result = sequential.analyze(
     control_visitors=2500,
@@ -395,7 +395,7 @@ Get intuitive probability-based results instead of confusing p-values.
 ### Bayesian Analysis
 
 ```python
-from pyexpstats.methods import bayesian
+from abverdict.methods import bayesian
 
 result = bayesian.analyze(
     control_visitors=1000,
@@ -428,7 +428,7 @@ Validate your A/B test before trusting the results.
 SRM indicates bugs in your experiment setup that can invalidate results:
 
 ```python
-from pyexpstats.diagnostics import check_sample_ratio
+from abverdict.diagnostics import check_sample_ratio
 
 result = check_sample_ratio(
     control_visitors=10500,
@@ -446,7 +446,7 @@ print(f"Deviation: {result.deviation_percent:.1f}%")
 Comprehensive health check for your experiment:
 
 ```python
-from pyexpstats.diagnostics import check_health
+from abverdict.diagnostics import check_health
 
 health = check_health(
     control_visitors=5000,
@@ -468,7 +468,7 @@ for check in health.checks:
 Detect if your experiment effect is fading over time:
 
 ```python
-from pyexpstats.diagnostics import detect_novelty_effect
+from abverdict.diagnostics import detect_novelty_effect
 
 daily_results = [
     {"day": 1, "control_visitors": 1000, "control_conversions": 50,
@@ -498,7 +498,7 @@ Plan your A/B tests before running them.
 Understand what effects you can detect with your traffic:
 
 ```python
-from pyexpstats.planning import minimum_detectable_effect
+from abverdict.planning import minimum_detectable_effect
 
 result = minimum_detectable_effect(
     daily_traffic=5000,
@@ -516,7 +516,7 @@ print(f"Is practically useful: {result.is_practically_useful}")
 Get recommendations for how long to run your test:
 
 ```python
-from pyexpstats.planning import recommend_duration
+from abverdict.planning import recommend_duration
 
 result = recommend_duration(
     baseline_rate=0.05,
@@ -540,7 +540,7 @@ Translate A/B test results into business value.
 ### Revenue Impact Projections
 
 ```python
-from pyexpstats.business import project_impact
+from abverdict.business import project_impact
 
 projection = project_impact(
     control_rate=0.05,
@@ -562,7 +562,7 @@ print(f"Probability of positive impact: {projection.probability_positive_impact:
 Monitor metrics you want to protect during experiments:
 
 ```python
-from pyexpstats.business import check_guardrails
+from abverdict.business import check_guardrails
 
 report = check_guardrails([
     {
@@ -598,7 +598,7 @@ Analyze how your A/B test performs across different user segments.
 ### Analyze by Segment
 
 ```python
-from pyexpstats.segments import analyze_segments
+from abverdict.segments import analyze_segments
 
 report = analyze_segments([
     {
@@ -669,14 +669,14 @@ With 95% confidence, the variant shows a **20.0%** improvement.
 
 ## 🌐 Web Interface
 
-pyexpstats includes a beautiful web UI for interactive experiment analysis:
+abverdict includes a beautiful web UI for interactive experiment analysis:
 
 ```bash
-pyexpstats-server
+abverdict-server
 # Open http://localhost:8000
 ```
 
-Or use the hosted version at **[pyexpstats.vercel.app](https://pyexpstats.vercel.app)**
+Or use the hosted version at **[abverdict.vercel.app](https://abverdict.vercel.app)**
 
 ### Configuration
 
@@ -689,7 +689,7 @@ Configure the API server using environment variables:
 For production, set appropriate CORS origins:
 
 ```bash
-CORS_ORIGINS="https://yourdomain.com" pyexpstats-server
+CORS_ORIGINS="https://yourdomain.com" abverdict-server
 ```
 
 ### Web Calculator Features
@@ -794,7 +794,7 @@ The web interface includes:
 ## Module Structure
 
 ```
-pyexpstats/
+abverdict/
   effects/
     outcome/
       conversion.py    # Binary outcomes (signup, purchase, click)
@@ -865,7 +865,7 @@ A 95% confidence interval means: if you ran this experiment 100 times, about 95 
 
 ## Use Cases
 
-pyexpstats is used for:
+abverdict is used for:
 
 - **Conversion Rate Optimization (CRO)** — Optimize landing pages, signup flows, checkout
 - **Product Experimentation** — Test new features, UI changes, pricing

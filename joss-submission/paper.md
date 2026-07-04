@@ -1,5 +1,5 @@
 ---
-title: 'pyexpstats: A Comprehensive Python Library for A/B Testing and Experimentation Statistics'
+title: 'abverdict: A Comprehensive Python Library for A/B Testing and Experimentation Statistics'
 tags:
   - Python
   - A/B testing
@@ -8,7 +8,7 @@ tags:
   - Bayesian inference
   - sequential testing
 authors:
-  - name: pyexpstats contributors
+  - name: abverdict contributors
     affiliation: 1
 affiliations:
   - name: Independent
@@ -19,13 +19,13 @@ bibliography: references.bib
 
 # Summary
 
-**pyexpstats** is an open-source Python library that provides a complete statistical toolkit for A/B testing and online experimentation. The library offers sample size calculation, power analysis, significance testing, Bayesian inference, sequential testing with early stopping, and business impact projections. Designed with both analysts and non-technical users in mind, pyexpstats includes a web-based user interface that makes statistical analysis accessible to marketing and product teams.
+**abverdict** is an open-source Python library that provides a complete statistical toolkit for A/B testing and online experimentation. The library offers sample size calculation, power analysis, significance testing, Bayesian inference, sequential testing with early stopping, and business impact projections. Designed with both analysts and non-technical users in mind, abverdict includes a web-based user interface that makes statistical analysis accessible to marketing and product teams.
 
 # Statement of Need
 
 Online controlled experiments (A/B tests) have become the gold standard for data-driven decision making in technology companies [@kohavi2020trustworthy]. However, proper statistical analysis of experiments requires expertise that many practitioners lack. Despite the proliferation of A/B testing tools, most solutions fall into two categories: expensive enterprise platforms or fragmented open-source libraries that require significant statistical knowledge.
 
-pyexpstats addresses several critical gaps:
+abverdict addresses several critical gaps:
 
 1. **Accessibility**: Complex statistical concepts are translated into business-friendly language (e.g., "Chance to Win" instead of "Bayesian posterior probability")
 
@@ -39,10 +39,10 @@ pyexpstats addresses several critical gaps:
 
 ## Sample Size Planning
 
-Proper experiment planning is crucial for reliable results. pyexpstats provides sample size calculators for conversion rate tests, revenue/magnitude tests, and time-to-event analyses.
+Proper experiment planning is crucial for reliable results. abverdict provides sample size calculators for conversion rate tests, revenue/magnitude tests, and time-to-event analyses.
 
 ```python
-from pyexpstats import conversion
+from abverdict import conversion
 
 plan = conversion.sample_size(
     current_rate=0.05,      # 5% baseline conversion
@@ -58,7 +58,7 @@ print(f"Visitors per variant: {plan.visitors_per_variant:,}")
 
 ## Statistical Analysis Methods
 
-pyexpstats supports three complementary analysis approaches:
+abverdict supports three complementary analysis approaches:
 
 ### Classic (Frequentist) Analysis
 Traditional hypothesis testing with p-values and confidence intervals using two-sample z-tests for proportions and t-tests for continuous outcomes.
@@ -67,7 +67,7 @@ Traditional hypothesis testing with p-values and confidence intervals using two-
 Computes the probability that one variant is better than another, providing more intuitive interpretations for decision-makers [@stucchio2015bayesian].
 
 ```python
-from pyexpstats.methods import bayesian
+from abverdict.methods import bayesian
 
 result = bayesian.analyze(
     control_visitors=10000,
@@ -93,7 +93,7 @@ Experimental validity depends on detecting issues that can bias results:
 - **Experiment Health Score**: Overall assessment combining multiple diagnostic checks
 
 ```python
-from pyexpstats.diagnostics import srm, novelty
+from abverdict.diagnostics import srm, novelty
 
 # Check for Sample Ratio Mismatch
 srm_result = srm.check(
@@ -108,7 +108,7 @@ print(f"SRM detected: {srm_result.has_srm}")
 
 ## Segment Analysis
 
-Analyzing results across user segments requires proper multiple comparison corrections. pyexpstats supports Bonferroni correction (conservative), Holm-Bonferroni correction (balanced), and Simpson's Paradox detection [@simpson1951interpretation].
+Analyzing results across user segments requires proper multiple comparison corrections. abverdict supports Bonferroni correction (conservative), Holm-Bonferroni correction (balanced), and Simpson's Paradox detection [@simpson1951interpretation].
 
 ![Segment Analysis interface showing results breakdown by user groups](figures/segments.png)
 
@@ -117,7 +117,7 @@ Analyzing results across user segments requires proper multiple comparison corre
 Translating statistical results into business value helps stakeholders understand the real-world implications of experiment results.
 
 ```python
-from pyexpstats.business import impact
+from abverdict.business import impact
 
 projection = impact.project(
     baseline_value=1000000,      # $1M monthly revenue
@@ -132,34 +132,34 @@ print(f"Expected annual impact: ${projection.expected_impact:,.0f}")
 
 # Architecture
 
-pyexpstats is designed with a modular architecture:
+abverdict is designed with a modular architecture:
 
 | Module | Purpose |
 |--------|---------|
-| `pyexpstats.effects.outcome.conversion` | Binary outcome analysis |
-| `pyexpstats.effects.outcome.magnitude` | Continuous outcome analysis |
-| `pyexpstats.effects.outcome.timing` | Time-to-event analysis |
-| `pyexpstats.methods.bayesian` | Bayesian inference |
-| `pyexpstats.methods.sequential` | Sequential testing |
-| `pyexpstats.diagnostics` | Experiment health checks |
-| `pyexpstats.segments` | Segment analysis |
-| `pyexpstats.business` | Impact projections |
+| `abverdict.effects.outcome.conversion` | Binary outcome analysis |
+| `abverdict.effects.outcome.magnitude` | Continuous outcome analysis |
+| `abverdict.effects.outcome.timing` | Time-to-event analysis |
+| `abverdict.methods.bayesian` | Bayesian inference |
+| `abverdict.methods.sequential` | Sequential testing |
+| `abverdict.diagnostics` | Experiment health checks |
+| `abverdict.segments` | Segment analysis |
+| `abverdict.business` | Impact projections |
 
 # Installation and Usage
 
 ```bash
-pip install pyexpstats
+pip install abverdict
 ```
 
 To run the web interface:
 
 ```bash
-pyexpstats-server
+abverdict-server
 ```
 
 # Testing
 
-pyexpstats includes a comprehensive test suite with 367+ tests covering statistical correctness validation, edge case handling, and API endpoint testing.
+abverdict includes a comprehensive test suite with 367+ tests covering statistical correctness validation, edge case handling, and API endpoint testing.
 
 ```bash
 pytest tests/ -v
@@ -167,6 +167,6 @@ pytest tests/ -v
 
 # Acknowledgements
 
-We thank the open-source community for the foundational libraries that make pyexpstats possible, particularly NumPy, SciPy, and FastAPI.
+We thank the open-source community for the foundational libraries that make abverdict possible, particularly NumPy, SciPy, and FastAPI.
 
 # References

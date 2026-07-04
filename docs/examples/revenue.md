@@ -1,6 +1,6 @@
 # Revenue Test Examples
 
-Real-world examples of using pyexpstats for revenue and numeric metric A/B tests.
+Real-world examples of using abverdict for revenue and numeric metric A/B tests.
 
 ## Example 1: Average Order Value Test
 
@@ -10,7 +10,7 @@ You're testing a product recommendation feature. After 2 weeks:
 - **Variant:** 3,000 orders, $52.30 average, $24.00 std dev
 
 ```python
-from pyexpstats import magnitude
+from abverdict import magnitude
 
 result = magnitude.analyze(
     control_visitors=3000,

@@ -5,11 +5,11 @@ Tests MDE calculation and Duration recommendations.
 """
 
 import pytest
-from pyexpstats.planning.mde import (
+from abverdict.planning.mde import (
     minimum_detectable_effect,
     MDEResult,
 )
-from pyexpstats.planning.duration import (
+from abverdict.planning.duration import (
     recommend_duration,
     DurationRecommendation,
 )

@@ -6,17 +6,17 @@ from pydantic import BaseModel, Field
 from typing import Literal, Optional, List
 import os
 
-import pyexpstats
-from pyexpstats.effects.outcome import conversion, magnitude, timing
-from pyexpstats.methods import bayesian, sequential
-from pyexpstats.diagnostics import srm, health, novelty
-from pyexpstats.segments import analysis as segment_analysis
-from pyexpstats.business import impact
+import abverdict
+from abverdict.effects.outcome import conversion, magnitude, timing
+from abverdict.methods import bayesian, sequential
+from abverdict.diagnostics import srm, health, novelty
+from abverdict.segments import analysis as segment_analysis
+from abverdict.business import impact
 
 app = FastAPI(
-    title="pyexpstats API",
+    title="abverdict API",
     description="Simple A/B testing tools for marketers and analysts",
-    version=pyexpstats.__version__,
+    version=abverdict.__version__,
 )
 
 CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "http://localhost:3000,http://localhost:5173").split(",")
@@ -231,7 +231,7 @@ class ImpactProjectionRequest(BaseModel):
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "healthy", "version": pyexpstats.__version__}
+    return {"status": "healthy", "version": abverdict.__version__}
 
 
 @app.post("/api/conversion/sample-size")

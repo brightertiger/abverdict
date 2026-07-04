@@ -7,9 +7,9 @@ This module provides tools to validate your test:
 - Novelty effect detection
 """
 
-from pyexpstats.diagnostics.srm import check_sample_ratio, SampleRatioResult
-from pyexpstats.diagnostics.health import check_health, TestHealthReport
-from pyexpstats.diagnostics.novelty import detect_novelty_effect, NoveltyEffectResult
+from abverdict.diagnostics.srm import check_sample_ratio, SampleRatioResult
+from abverdict.diagnostics.health import check_health, TestHealthReport
+from abverdict.diagnostics.novelty import detect_novelty_effect, NoveltyEffectResult
 
 __all__ = [
     "check_sample_ratio",

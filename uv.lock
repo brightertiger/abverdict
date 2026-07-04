@@ -1254,7 +1254,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pyexpstats"
+name = "abverdict"
 version = "0.3.0"
 source = { editable = "." }
 dependencies = [

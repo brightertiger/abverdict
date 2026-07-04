@@ -219,7 +219,7 @@ frontend/dist/
 .DS_Store
 Thumbs.db
 
-# pyexpstats
+# abverdict
 .creds/
 .vercel
 .env*.local

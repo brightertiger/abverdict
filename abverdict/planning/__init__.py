@@ -7,11 +7,11 @@ Tools to help plan A/B tests before you run them:
 - Traffic allocation optimization
 """
 
-from pyexpstats.planning.mde import (
+from abverdict.planning.mde import (
     minimum_detectable_effect,
     MDEResult,
 )
-from pyexpstats.planning.duration import (
+from abverdict.planning.duration import (
     recommend_duration,
     DurationRecommendation,
 )

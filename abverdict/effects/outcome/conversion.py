@@ -3,8 +3,8 @@ from scipy.stats import norm, chi2_contingency
 from typing import Literal, Optional, List, Dict, Any
 from dataclasses import dataclass
 
-from pyexpstats.effects.outcome.base import FullOutcomeEffect
-from pyexpstats.utils.stats import (
+from abverdict.effects.outcome.base import FullOutcomeEffect
+from abverdict.utils.stats import (
     sample_size_two_proportions,
     z_test_two_proportions,
     proportion_ci,

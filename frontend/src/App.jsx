@@ -19,8 +19,8 @@ function App() {
     <div className="app-container">
       <div className="app-rule" aria-hidden="true" />
       <header className="top-header">
-        <Link to="/" className="header-brand" aria-label="pyexpstats home">
-          <span className="wordmark">pyexpstats<span className="wordmark-dot">.</span></span>
+        <Link to="/" className="header-brand" aria-label="abverdict home">
+          <span className="wordmark">abverdict<span className="wordmark-dot">.</span></span>
         </Link>
 
         <nav className="header-nav" aria-label="Main">
@@ -39,7 +39,7 @@ function App() {
         </nav>
 
         <a
-          href="https://github.com/brightertiger/pyexpstats"
+          href="https://github.com/brightertiger/abverdict"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"

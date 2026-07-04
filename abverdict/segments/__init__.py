@@ -8,7 +8,7 @@ Tools to analyze A/B test results across user segments:
 - Statistical corrections for multiple comparisons
 """
 
-from pyexpstats.segments.analysis import (
+from abverdict.segments.analysis import (
     analyze_segments,
     SegmentResult,
     SegmentAnalysisReport,

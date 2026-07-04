@@ -1,8 +1,8 @@
-site_name: pyexpstats
+site_name: abverdict
 site_description: Simple A/B testing tools for marketers, analysts, and product teams
-site_url: https://pyexpstats.readthedocs.io
-repo_url: https://github.com/brightertiger/pyexpstats
-repo_name: brightertiger/pyexpstats
+site_url: https://abverdict.readthedocs.io
+repo_url: https://github.com/brightertiger/abverdict
+repo_name: brightertiger/abverdict
 
 theme:
   name: material
@@ -84,6 +84,6 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/brightertiger/pyexpstats
+      link: https://github.com/brightertiger/abverdict
     - icon: fontawesome/brands/python
-      link: https://pypi.org/project/pyexpstats/
+      link: https://pypi.org/project/abverdict/

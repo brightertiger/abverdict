@@ -5,15 +5,15 @@ Tests SRM detection, Test Health, and Novelty Effect detection.
 """
 
 import pytest
-from pyexpstats.diagnostics.srm import (
+from abverdict.diagnostics.srm import (
     check_sample_ratio,
     SampleRatioResult,
 )
-from pyexpstats.diagnostics.health import (
+from abverdict.diagnostics.health import (
     check_health,
     TestHealthReport,
 )
-from pyexpstats.diagnostics.novelty import (
+from abverdict.diagnostics.novelty import (
     detect_novelty_effect,
     NoveltyEffectResult,
 )

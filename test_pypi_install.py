@@ -1,10 +1,10 @@
-import pyexpstats
-from pyexpstats import conversion, magnitude, timing
+import abverdict
+from abverdict import conversion, magnitude, timing
 
 print("=" * 60)
-print("Testing pyexpstats from PyPI installation")
+print("Testing abverdict from PyPI installation")
 print("=" * 60)
-print(f"\nPackage version: {pyexpstats.__version__}")
+print(f"\nPackage version: {abverdict.__version__}")
 
 print("\n" + "=" * 60)
 print("1. CONVERSION EFFECT TESTS")
@@ -209,4 +209,4 @@ print(f"  Significant: {mag_did_result.is_significant}")
 print("\n" + "=" * 60)
 print("✅ ALL TESTS PASSED!")
 print("=" * 60)
-print("\nPackage pyexpstats is working correctly from PyPI installation.")
+print("\nPackage abverdict is working correctly from PyPI installation.")

@@ -45,11 +45,11 @@
 
 \lstset{style=pythonstyle}
 
-\title{\textbf{pyexpstats}: A Comprehensive Python Library for A/B Testing and Experimentation Statistics}
+\title{\textbf{abverdict}: A Comprehensive Python Library for A/B Testing and Experimentation Statistics}
 
 \author{
-    pyexpstats contributors\\
-    \texttt{https://github.com/pyexpstats/pyexpstats}
+    abverdict contributors\\
+    \texttt{https://github.com/abverdict/abverdict}
 }
 
 \date{}
@@ -59,12 +59,12 @@
 \maketitle
 
 \begin{abstract}
-\textbf{pyexpstats} is an open-source Python library that provides a complete statistical toolkit for A/B testing and online experimentation. The library offers sample size calculation, power analysis, significance testing, Bayesian inference, sequential testing with early stopping, and business impact projections. Designed with both analysts and non-technical users in mind, pyexpstats includes a web-based user interface that makes statistical analysis accessible to marketing and product teams. The library addresses the growing need for rigorous experimentation practices in industry while maintaining ease of use.
+\textbf{abverdict} is an open-source Python library that provides a complete statistical toolkit for A/B testing and online experimentation. The library offers sample size calculation, power analysis, significance testing, Bayesian inference, sequential testing with early stopping, and business impact projections. Designed with both analysts and non-technical users in mind, abverdict includes a web-based user interface that makes statistical analysis accessible to marketing and product teams. The library addresses the growing need for rigorous experimentation practices in industry while maintaining ease of use.
 \end{abstract}
 
 \section*{Summary}
 
-Online controlled experiments (A/B tests) have become the gold standard for data-driven decision making in technology companies \citep{kohavi2020trustworthy}. However, proper statistical analysis of experiments requires expertise that many practitioners lack. \textbf{pyexpstats} bridges this gap by providing:
+Online controlled experiments (A/B tests) have become the gold standard for data-driven decision making in technology companies \citep{kohavi2020trustworthy}. However, proper statistical analysis of experiments requires expertise that many practitioners lack. \textbf{abverdict} bridges this gap by providing:
 
 \begin{itemize}
     \item A Python API for analysts to integrate into data pipelines
@@ -76,7 +76,7 @@ Online controlled experiments (A/B tests) have become the gold standard for data
 
 \section*{Statement of Need}
 
-Despite the proliferation of A/B testing tools, most solutions fall into two categories: expensive enterprise platforms or fragmented open-source libraries that require significant statistical knowledge. pyexpstats addresses several critical gaps:
+Despite the proliferation of A/B testing tools, most solutions fall into two categories: expensive enterprise platforms or fragmented open-source libraries that require significant statistical knowledge. abverdict addresses several critical gaps:
 
 \begin{enumerate}
     \item \textbf{Accessibility}: Complex statistical concepts are translated into business-friendly language (e.g., ``Chance to Win'' instead of ``Bayesian posterior probability'')
@@ -92,7 +92,7 @@ Despite the proliferation of A/B testing tools, most solutions fall into two cat
 
 \subsection*{1. Sample Size Planning}
 
-Proper experiment planning is crucial for reliable results. pyexpstats provides sample size calculators for:
+Proper experiment planning is crucial for reliable results. abverdict provides sample size calculators for:
 
 \begin{itemize}
     \item Conversion rate tests (binomial outcomes)
@@ -101,7 +101,7 @@ Proper experiment planning is crucial for reliable results. pyexpstats provides 
 \end{itemize}
 
 \begin{lstlisting}[language=Python, caption=Sample size calculation example]
-from pyexpstats import conversion
+from abverdict import conversion
 
 plan = conversion.sample_size(
     current_rate=0.05,      # 5% baseline conversion
@@ -123,7 +123,7 @@ print(f"Visitors per variant: {plan.visitors_per_variant:,}")
 
 \subsection*{2. Statistical Analysis Methods}
 
-pyexpstats supports three complementary analysis approaches:
+abverdict supports three complementary analysis approaches:
 
 \subsubsection*{Classic (Frequentist) Analysis}
 Traditional hypothesis testing with p-values and confidence intervals using two-sample z-tests for proportions and t-tests for continuous outcomes.
@@ -132,7 +132,7 @@ Traditional hypothesis testing with p-values and confidence intervals using two-
 Computes the probability that one variant is better than another, providing more intuitive interpretations for decision-makers \citep{stucchio2015bayesian}.
 
 \begin{lstlisting}[language=Python, caption=Bayesian analysis example]
-from pyexpstats.methods import bayesian
+from abverdict.methods import bayesian
 
 result = bayesian.analyze(
     control_visitors=10000,
@@ -169,7 +169,7 @@ Identifies whether treatment effects change over time, distinguishing lasting im
 Provides an overall assessment combining multiple diagnostic checks.
 
 \begin{lstlisting}[language=Python, caption=Diagnostic checks example]
-from pyexpstats.diagnostics import srm, novelty
+from abverdict.diagnostics import srm, novelty
 
 # Check for Sample Ratio Mismatch
 srm_result = srm.check(
@@ -196,7 +196,7 @@ print(f"Effect is stabilizing: {novelty_result.effect_stabilizing}")
 
 \subsection*{4. Segment Analysis}
 
-Analyzing results across user segments requires proper multiple comparison corrections. pyexpstats supports:
+Analyzing results across user segments requires proper multiple comparison corrections. abverdict supports:
 
 \begin{itemize}
     \item Bonferroni correction (conservative)
@@ -216,7 +216,7 @@ Analyzing results across user segments requires proper multiple comparison corre
 Translating statistical results into business value:
 
 \begin{lstlisting}[language=Python, caption=Business impact projection]
-from pyexpstats.business import impact
+from abverdict.business import impact
 
 projection = impact.project(
     baseline_value=1000000,      # $1M monthly revenue
@@ -238,7 +238,7 @@ print(f"Range: ${projection.lower_bound:,.0f} - ${projection.upper_bound:,.0f}")
 
 \section*{Architecture}
 
-pyexpstats is designed with a modular architecture:
+abverdict is designed with a modular architecture:
 
 \begin{itemize}
     \item \textbf{Core Statistical Engine}: Pure Python/NumPy/SciPy implementations
@@ -254,15 +254,15 @@ pyexpstats is designed with a modular architecture:
 \toprule
 \textbf{Module} & \textbf{Purpose} \\
 \midrule
-\texttt{pyexpstats.effects.outcome.conversion} & Binary outcome analysis \\
-\texttt{pyexpstats.effects.outcome.magnitude} & Continuous outcome analysis \\
-\texttt{pyexpstats.effects.outcome.timing} & Time-to-event analysis \\
-\texttt{pyexpstats.methods.bayesian} & Bayesian inference \\
-\texttt{pyexpstats.methods.sequential} & Sequential testing \\
-\texttt{pyexpstats.diagnostics} & Experiment health checks \\
-\texttt{pyexpstats.segments} & Segment analysis \\
-\texttt{pyexpstats.business} & Impact projections \\
-\texttt{pyexpstats.planning} & Duration estimation \\
+\texttt{abverdict.effects.outcome.conversion} & Binary outcome analysis \\
+\texttt{abverdict.effects.outcome.magnitude} & Continuous outcome analysis \\
+\texttt{abverdict.effects.outcome.timing} & Time-to-event analysis \\
+\texttt{abverdict.methods.bayesian} & Bayesian inference \\
+\texttt{abverdict.methods.sequential} & Sequential testing \\
+\texttt{abverdict.diagnostics} & Experiment health checks \\
+\texttt{abverdict.segments} & Segment analysis \\
+\texttt{abverdict.business} & Impact projections \\
+\texttt{abverdict.planning} & Duration estimation \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -274,7 +274,7 @@ pyexpstats is designed with a modular architecture:
 \caption{Comparison with existing A/B testing tools}
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Feature} & \textbf{pyexpstats} & \textbf{statsmodels} & \textbf{scipy} & \textbf{abtest} \\
+\textbf{Feature} & \textbf{abverdict} & \textbf{statsmodels} & \textbf{scipy} & \textbf{abtest} \\
 \midrule
 Sample size calculation & \checkmark & \checkmark & -- & \checkmark \\
 Frequentist testing & \checkmark & \checkmark & \checkmark & \checkmark \\
@@ -292,18 +292,18 @@ Business-friendly & \checkmark & -- & -- & -- \\
 \section*{Installation and Usage}
 
 \begin{lstlisting}[language=bash, caption=Installation]
-pip install pyexpstats
+pip install abverdict
 \end{lstlisting}
 
 To run the web interface:
 
 \begin{lstlisting}[language=bash, caption=Starting the web server]
-pyexpstats-server
+abverdict-server
 \end{lstlisting}
 
 \section*{Testing}
 
-pyexpstats includes a comprehensive test suite with 367+ tests covering:
+abverdict includes a comprehensive test suite with 367+ tests covering:
 
 \begin{itemize}
     \item Statistical correctness validation
@@ -318,7 +318,7 @@ pytest tests/ -v
 
 \section*{Documentation}
 
-Full documentation is available at \url{https://github.com/pyexpstats/pyexpstats}, including:
+Full documentation is available at \url{https://github.com/abverdict/abverdict}, including:
 
 \begin{itemize}
     \item API reference
@@ -329,7 +329,7 @@ Full documentation is available at \url{https://github.com/pyexpstats/pyexpstats
 
 \section*{Acknowledgements}
 
-We thank the open-source community for the foundational libraries that make pyexpstats possible, particularly NumPy, SciPy, and FastAPI.
+We thank the open-source community for the foundational libraries that make abverdict possible, particularly NumPy, SciPy, and FastAPI.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
