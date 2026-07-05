@@ -58,3 +58,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      # Pages intermittently rejects fresh deployments with "Deployment
+      # failed, try again later"; a delayed second attempt reliably lands.
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 120
+
+      - name: Retry deploy
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
