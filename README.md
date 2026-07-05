@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/logo.png" alt="abverdict - Python A/B Testing and Experiment Analysis Library" width="520">
+  <img src="https://raw.githubusercontent.com/brightertiger/abverdict/main/static/logo.png" alt="abverdict - Python A/B Testing and Experiment Analysis Library" width="520">
 </p>
 
 <h1 align="center">abverdict</h1>
